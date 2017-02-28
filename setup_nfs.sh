@@ -32,6 +32,8 @@ while IFS= read -r ip; do
 		ssh -T "$host" <<- SSH_EOF
 			# Switch to root
 			echo "$PASSWORD" | sudo -S su
+			# Create cloud folder
+			mkdir /home/ubuntu/cloud
 			# Install the package
 			sudo apt-get update
 			echo 'Y' | sudo -S apt-get install nfs-kernel-server
@@ -49,6 +51,8 @@ while IFS= read -r ip; do
 		ssh -T "$host" <<- SSH_EOF
 			# Switch to root
 			echo "$PASSWORD" | sudo -S su
+			# Create cloud folder
+			mkdir /home/ubuntu/cloud
 			# Install the package
 			sudo apt-get update
 			echo 'Y' | sudo -S apt-get install nfs-common
